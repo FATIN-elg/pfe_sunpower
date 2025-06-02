@@ -10,6 +10,16 @@ CREATE TABLE Utilisateur (
     role ENUM('user', 'admin', 'president') DEFAULT 'user'
 );
 
+-- Table PRODUIT
+CREATE TABLE PRODUIT (
+  id_produit INT AUTO_INCREMENT PRIMARY KEY,
+  nom_produit VARCHAR(150),
+  description TEXT,
+  image VARCHAR(255),
+  date_ajout DATE,
+  statut VARCHAR(50)
+);
+
 -- Table: TypeInstallation (off-grid, on-grid, pompage)
 CREATE TABLE TypeInstallation (
     id_type_installation INT PRIMARY KEY AUTO_INCREMENT,
