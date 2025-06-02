@@ -1,0 +1,26 @@
+@startuml 
+left to right direction
+actor "Client" as c
+actor "Administrateur" as a
+rectangle Systemes {
+  usecase "Consulter l'historique des devis" as UC1
+  usecase "Génerer les devis" as UC2
+  usecase "Consulter les produits" as UC3
+  usecase "Authentification" as UC4
+  usecase "Gérer les utilisateurs" as UA1
+  usecase "Gérer les devis" as UA2
+  usecase "Gérer les produits" as UA3
+  usecase "Accéder au statistique" as UA4
+  
+}
+c --> UC1
+c --> UC2
+c --> UC3
+c --> UC4
+a --> UC4
+a --> UA1
+a --> UA2
+a --> UA3
+a --> UA4
+
+@enduml
