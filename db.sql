@@ -52,7 +52,6 @@ CREATE TABLE Localisation (
 -- Table: Simulation
 CREATE TABLE Simulation (
     id_simulation INT PRIMARY KEY AUTO_INCREMENT,
-    date_simulation DATE,
     consommation_journaliere DECIMAL(10,2), -- Wh/jour
     id_utilisateur INT,
     id_panneau_type INT,
