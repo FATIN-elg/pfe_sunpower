@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Sun Power</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="services.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+   
+</head>
+<body>
+    <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+   <div class="services-grid">
+   <div class="service-card clickable" onclick="window.location.href='type_installation.html'">
+    <i class="fas fa-solar-panel service-icon"></i>
+    <h3>Installation Solaire</h3>
+    <p>Installation professionnelle de panneaux solaires pour particuliers et entreprises. Solutions sur mesure adaptées à vos besoins.</p>
+</div>
+
+
+    <div class="service-card clickable">
+    <i class="fas fa-fire service-icon"></i>
+    <h3>Fabrication Séchoir Solaire</h3>
+    <p>Conception et fabrication artisanale de séchoirs et cuiseurs solaires pour une utilisation domestique ou professionnelle.</p>
+</div>
+
+
+    <div class="service-card">
+        <i class="fas fa-graduation-cap service-icon"></i>
+        <h3>Formation & Sensibilisation</h3>
+        <p>Programmes de formation et de sensibilisation aux énergies renouvelables pour tous les publics.</p>
+    </div>
+</div>
+
+
+    <!-- Include Footer -->
+    <div id="footer-placeholder"></div>
+
+    <script src="header.js"></script>
+    <script>
+        // Charger le header
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+            });
+
+        // Charger le footer
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer-placeholder').innerHTML = data;
+            });
+    </script>
+</body>
+</html>
