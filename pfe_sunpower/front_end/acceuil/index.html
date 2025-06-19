@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sun Power Coop - Énergie Solaire</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="../include/header.css">
+    <link rel="stylesheet" href="../include/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head> 
 <body>
@@ -15,21 +15,21 @@
 <!-- home -->
     <article class="art1" id="home">
         <div class="slideshow">
-            <div class="slide active" style="background-image: url('assets/images/slide1.jpg'); background-position: top center;">
+            <div class="slide active" style="background-image: url('../assets/images/slide1.jpg'); background-position: top center;">
                 <div class="intraduction">
                     <div class="titel">
                         <h1>BIENVENUE CHEZ SUN POWER</h1>
                         <p>Ensemble, construisons un avenir plus durable grâce à l'énergie solaire.</p>
-                        <a href="login.html" class="devis-btn">FAIRE UN DEVIS <i class="fas fa-arrow-right"></i></a>
+                        <a href="../login.html" class="devis-btn">FAIRE UN DEVIS <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
-            <div class="slide" style="background-image: url('assets/images/slide2.jpg');">
+            <div class="slide" style="background-image: url('../assets/images/slide2.jpg');">
                 <div class="intraduction">
                     <div class="titel">
                         <h1>DÉCOUVREZ NOS PRODUITS</h1>
                         <p>Une large gamme de solutions d'énergie solaire pour tous vos besoins.</p>
-                        <a href="login.html" class="devis-btn">VOIR CATALOGUE <i class="fas fa-book-open"></i></a>
+                        <a href="../produits/produits.html" class="devis-btn">VOIR CATALOGUE <i class="fas fa-book-open"></i></a>
                     </div>
                 </div>
             </div>
@@ -122,17 +122,17 @@ document.querySelectorAll('.nav-btn.next').forEach(btn => {
     });
 });
 </script>
-    <script src="header.js"></script>
+    <script src="../include/header.js"></script>
     <script>
         // Charger le header
-        fetch('header.html')
+        fetch('../include/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
             });
 
         // Charger le footer
-        fetch('footer.html')
+        fetch('../include/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
