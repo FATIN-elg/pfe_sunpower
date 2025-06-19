@@ -1,0 +1,391 @@
+<?php include('../include/header.php'); ?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Contactez-nous</title>
+  
+   <link rel="stylesheet" href="../include/header.css">
+    <link rel="stylesheet" href="../include/footer.css">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+     <style>* {
+  padding: 0;
+  margin: 0;
+  color: rgb(0, 0, 0);
+}
+
+/* style du body */
+body {  
+  font-family: Arial, sans-serif;
+}
+
+/* style de header */
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 25px;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(56, 54, 54, 0.1);
+  height: 80px;
+  position: fixed;
+  z-index: 1000;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+header.scrolled {
+  height: 70px;
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.15);
+}
+
+header .logo {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 90%;
+  max-height: 60px;
+  width: auto;
+  transition: all 0.3s ease;
+}
+
+header.scrolled .logo img {
+  max-height: 50px;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.navbare {
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0 20px;
+  color: rgba(5, 5, 6, 0.863);
+  transition: 0.4s;
+  position: relative;
+}
+
+.navbare:hover,
+.navbare.active,
+.navbare.current {
+  color: #f4a024;
+}
+
+.navbare.current::after,
+.navbare:hover::after,
+.navbare.active::after {
+  content: '';
+  position: absolute;
+  width: 70%;
+  height: 2px;
+  background: #f4a024;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  transition: 0.3s;
+}
+
+header .singup {
+  background-color: #efefef;
+  border-radius: 20px;
+  padding: 10px 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+header .singup:hover {
+  transform: scale(1.125);
+}
+
+/* section contact */
+.contact-section {
+  padding: 120px 20px 40px; 
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.title {
+  color: orange;
+  font-size: 24px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.title::before,
+.title::after {
+  content: "";
+  display: inline-block;
+  width: 80px;
+  height: 2px;
+  background-color: orange;
+  margin: 0 15px;
+  vertical-align: middle;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #4CAF50;
+  padding: 30px;
+  border-radius: 10px;
+  color: white;
+  max-width: 900px;
+  margin: auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  gap: 30px; /* 💡 espace interne */
+}
+
+.contact-form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  width: 100%;
+}
+
+.contact-form textarea {
+  height: 150px;
+  resize: none;
+}
+
+/* bouton Envoyer */
+.contact-form button {
+  padding: 12px;
+  background-color: orange;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: darkorange;
+}
+
+.contact-info {
+  flex: 1;
+  text-align: left;
+}
+
+.contact-info p {
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+/* style de footer */
+.footer {
+  background-color: #1e3d59;
+  color: white;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.footer-logo,
+.footer-contact,
+.footer-subscribe {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-logo h2,
+.footer-contact h3,
+.footer-subscribe h3 {
+  color: #f4a024;
+  margin-bottom: 20px;
+}
+
+.footer-logo h2 {
+  font-size: 28px;
+}
+
+.footer-logo p,
+.footer-contact p,
+.footer-subscribe p {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.footer-contact p i {
+  color: #f4a024;
+  margin-right: 15px;
+  font-size: 18px;
+  width: 20px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.footer-social a {
+  color: #f4a024;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.footer-subscribe form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.footer-subscribe input {
+  padding: 12px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.footer-subscribe input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-subscribe button {
+  background-color: #f4a024;
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.footer-subscribe button:hover {
+  background-color: #e59020;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+}
+
+/* Media queries responsive */
+@media screen and (max-width: 768px) {
+  header {
+    padding: 10px 15px;
+    height: 70px;
+  }
+
+  header .logo img {
+    max-height: 50px;
+  }
+
+  header nav {
+    gap: 10px;
+  }
+
+  header .singup {
+    padding: 8px 15px;
+  }
+
+  .navbare {
+    padding: 0 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 15px;
+  }
+
+  .footer-logo,
+  .footer-contact,
+  .footer-subscribe {
+    min-width: 100%;
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+</style>
+</head>
+<body> 
+   <!-- Include Header -->
+    <div id="header-placeholder"></div>
+
+  <section class="contact-section">
+    <h2 class="title">Contactez-nous</h2>
+    <div class="contact-container">
+      <form class="contact-form">
+        <input type="text" placeholder="Nom complet" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit">Envoyer</button>
+      </form>
+
+      <div class="contact-info">
+        <p><strong>Une question, une idée, un projet solaire ?<br>
+        Contactez-nous et construisons ensemble un avenir plus lumineux !</strong></p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3238.840977510556!2d-5.3666666!3d35.5833333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzXCsDM1JzAwLjAiTiA1wrAyMicwMC4wIlc!5e0!3m2!1sfr!2sma!4v1635000000000!5m2!1sfr!2sma"
+          width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+   <div id="footer-placeholder"></div>
+       
+
+ 
+</body>
+</html>
+<?php include('../include/footer.php'); ?>

@@ -1,0 +1,39 @@
+<!-- /include/footer.php -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <h2>SUN POWER</h2>
+      <p>SunPowerCoop est une coopérative engagée dans la transition énergétique. Nous accompagnons les particuliers et les professionnels dans l'installation de solutions solaires durables et accessibles.</p>
+      <div class="footer-social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p><i class="fas fa-phone"></i> +212 623-653732</p>
+      <p><i class="fas fa-envelope"></i> sunpowercoop@gmail.com</p>
+      <p><i class="fas fa-clock"></i> Lun – Ven : 8h00 – 18h00</p>
+      <p><i class="fas fa-map-marker-alt"></i> Maroc</p>
+    </div>
+
+    <div class="footer-subscribe">
+      <h3>Newsletter</h3>
+      <p>Restez informé de nos dernières actualités et offres</p>
+      <form>
+        <input type="email" placeholder="Votre email" required>
+        <button type="submit">S'inscrire <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2024 Sun Power Coop. Tous droits réservés.</p>
+  </div>
+</footer>
+
+<link rel="stylesheet" href="/include/footer.css">
