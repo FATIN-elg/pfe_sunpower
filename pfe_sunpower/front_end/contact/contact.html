@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <title>Contactez-nous</title>
   <link rel="stylesheet" href="contact.css">
-   <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+   <link rel="stylesheet" href="../include/header.css">
+    <link rel="stylesheet" href="../include/footer.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body> 
@@ -37,17 +37,17 @@
        
 
  </script>
-    <script src="header.js"></script>
+    <script src="../include/header.js"></script>
     <script>
         // Charger le header
-        fetch('header.html')
+        fetch('../include/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
             });
 
         // Charger le footer
-        fetch('footer.html')
+        fetch('../include/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
