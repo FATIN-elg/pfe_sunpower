@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>À propos - Sun Power</title>
   <link rel="stylesheet" href="about.css">
-   <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="footer.css">
+   <link rel="stylesheet" href="../include/header.css">
+    <link rel="stylesheet" href="../include/footer.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -23,11 +23,11 @@
         <p>Nous concevons, produisons et proposons des solutions solaires accessibles, durables et adaptées aux besoins des particuliers comme des professionnels. Notre engagement ne s’arrête pas à la technologie : nous croyons en l’humain, en l’avenir et en un Maroc plus vert.</p>
       </div>
       <div class="about-image">
-        <img src="assets/images/image4.jpg" alt="Équipe Sun Power">
+        <img src="../assets/images/image4.jpg" alt="Équipe Sun Power">
       </div>
 
       <div class="about-image">
-        <img src="assets/images/image3.jpg" alt="Formation Sun Power">
+        <img src="../assets/images/image3.jpg" alt="Formation Sun Power">
       </div>
       <div class="about-text">
         <p>Notre coopérative est également un incubateur de talents. Nous soutenons l’intégration professionnelle des jeunes techniciennes et ingénieurs à travers la formation, l’accompagnement et l’expérience terrain.</p>
@@ -46,7 +46,7 @@
     
     <!-- Carte 1 : Houda -->
     <div class="team-card">
-      <img src="assets/images/houda.jpg" alt="Houda Elhau-uari" class="team-photo">
+      <img src="../assets/images/houda.jpg" alt="Houda Elhau-uari" class="team-photo">
       <h3>Houda Elhau-uari</h3>
       <p class="team-role">Présidente</p>
       <hr>
@@ -58,7 +58,7 @@
 
     <!-- Carte 2 : Mariam -->
     <div class="team-card">
-      <img src="assets/images/mariam.jpg" alt="Mariam Es-Sih" class="team-photo">
+      <img src="../assets/images/mariam.jpg" alt="Mariam Es-Sih" class="team-photo">
       <h3>Mariam Es-Sih</h3>
       <p class="team-role">Responsable Communication</p>
       <hr>
@@ -69,7 +69,7 @@
 
     <!-- Carte 3 : Fatin -->
     <div class="team-card">
-      <img src="assets/images/fatin.jpg" alt="Fatin El Ghoual" class="team-photo">
+      <img src="../assets/images/fatin.jpg" alt="Fatin El Ghoual" class="team-photo">
       <h3>Fatin El Ghoual</h3>
       <p class="team-role">Responsable Commerce & Marketing</p>
       <hr>
@@ -79,7 +79,7 @@
     </div>
 <!-- Carte 4: Latifa Seroukh -->
 <div class="team-card">
-  <img src="assets/images/latifa.jpg" alt="Latifa Seroukh" class="team-photo">
+  <img src="../assets/images/latifa.jpg" alt="Latifa Seroukh" class="team-photo">
   <h3>Latifa Seroukh</h3>
   <p class="team-role">Gérante</p>
   <hr>
@@ -90,7 +90,7 @@
 
 <!-- Carte 5 : Houda Awdayer -->
 <div class="team-card">
-  <img src="assets/images/houuda.jpg" alt="Houda Awdayer" class="team-photo">
+  <img src="../assets/images/houuda.jpg" alt="Houda Awdayer" class="team-photo">
   <h3>Houda Awdayer</h3>
   <p class="team-role">Ambassadrice Solaire</p>
   <hr>
@@ -105,34 +105,34 @@
 <section class="partners-section">
   <h2 class="section-title">Nos partenaires</h2>
   <div class="partners-logos">
-    <img src="assets/images/gedi.png" alt="GEDI">
-    <img src="assets/images/aecid.png" alt="AECID">
-    <img src="assets/images/ministretouristique.jpg" alt="Royaume du Maroc">
-    <img src="assets/images/odico.png" alt="Office Développement">
-    <img src="assets/images/chambrecommerce.png" alt="CCIS">
-    <img src="assets/images/afd.jpeg" alt="AFD">
-    <img src="assets/images/ines (1).png" alt="INES">
-    <img src="assets/images/azimut.jpg" alt="Azimut360">
-    <img src="assets/images/wecf.png" alt="WECF">
-    <img src="assets/images/uir.png" alt="UIR">
-    <img src="assets/images/tangermed.png" alt="Tanger Med">
+    <img src="../assets/images/gedi.png" alt="GEDI">
+    <img src="../assets/images/aecid.png" alt="AECID">
+    <img src="../assets/images/ministretouristique.jpg" alt="Royaume du Maroc">
+    <img src="../assets/images/odico.png" alt="Office Développement">
+    <img src="../assets/images/chambrecommerce.png" alt="CCIS">
+    <img src="../assets/images/afd.jpeg" alt="AFD">
+    <img src="../assets/images/ines (1).png" alt="INES">
+    <img src="../assets/images/azimut.jpg" alt="Azimut360">
+    <img src="../assets/images/wecf.png" alt="WECF">
+    <img src="../assets/images/uir.png" alt="UIR">
+    <img src="../assets/images/tangermed.png" alt="Tanger Med">
   </div>
 </section>
 
 
   <div id="footer-placeholder"></div>
 </script>
-    <script src="header.js"></script>
+    <script src="../include/header.js"></script>
     <script>
         // Charger le header
-        fetch('header.html')
+        fetch('../include/header.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
             });
 
         // Charger le footer
-        fetch('footer.html')
+        fetch('../include/footer.html')
             .then(response => response.text())
             .then(data => {
                 document.getElementById('footer-placeholder').innerHTML = data;
