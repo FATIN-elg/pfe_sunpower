@@ -48,7 +48,6 @@ CREATE TABLE BatteryType (
 CREATE TABLE PompePuissance (
     id_pompe_puissance INT PRIMARY KEY AUTO_INCREMENT,
     puissance_kw DECIMAL(5,2),
-    usage VARCHAR(100),
     prix_unitaire DECIMAL(10,2)
 );
 
