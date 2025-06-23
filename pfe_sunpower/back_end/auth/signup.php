@@ -10,8 +10,8 @@ $errors = [
 $prenom = $nom = $email = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    require '../connect_db.php'; // Assurez-vous que ce fichier existe et connecte correctement à votre DB
-
+    require '../connect_db.php'; 
+    
     $prenom = trim($_POST['prenom']);
     $nom = trim($_POST['nom']);
     $email = trim($_POST['email']);
