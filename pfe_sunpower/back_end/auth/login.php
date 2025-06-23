@@ -1,61 +1,58 @@
 <?php
-// login.php
+// Activer l'affichage des erreurs pour le débogage
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Démarrer la session et inclure la connexion à la base de données
 session_start();
 require_once '../connect_db.php';
 
-// Initialisation des variables d'erreur
 $email = $mot_de_passe = "";
 $email_err = $mot_de_passe_err = $login_err = "";
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    // Vérification de l'email
     if (empty(trim($_POST["email"]))) {
         $email_err = "Veuillez entrer votre email.";
     } else {
         $email = trim($_POST["email"]);
     }
 
-    // Vérification du mot de passe
     if (empty(trim($_POST["mot_de_passe"]))) {
         $mot_de_passe_err = "Veuillez entrer votre mot de passe.";
     } else {
         $mot_de_passe = trim($_POST["mot_de_passe"]);
     }
 
-    // Si pas d'erreurs, on vérifie les infos dans la base
     if (empty($email_err) && empty($mot_de_passe_err)) {
-        $sql = "SELECT id_utilisateur, email, mot_de_passe FROM utilisateur WHERE email = ?";
-        
-        if ($stmt = mysqli_prepare($conn, $sql)) {
-            mysqli_stmt_bind_param($stmt, "s", $email);
-            
-            if (mysqli_stmt_execute($stmt)) {
-                mysqli_stmt_store_result($stmt);
+        try {
+            $stmt = $conn->prepare("SELECT id_utilisateur, nom, email, mot_de_passe FROM utilisateur WHERE email = :email");
+            $stmt->bindParam(':email', $email, PDO::PARAM_STR);
+            $stmt->execute();
 
-                if (mysqli_stmt_num_rows($stmt) == 1) {
-                    mysqli_stmt_bind_result($stmt, $id, $email, $hashed_password);
-                    if (mysqli_stmt_fetch($stmt)) {
-                        if (password_verify($mot_de_passe, $hashed_password)) {
-                            $_SESSION["user_id"] = $id;
-                            $_SESSION["email"] = $email;
-                            header("Location: ../acceuil/index.php");
-                            exit;
-                        } else {
-                            $login_err = "Mot de passe incorrect.";
-                        }
-                    }
+            if ($stmt->rowCount() == 1) {
+                $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                if (password_verify($mot_de_passe, $row['mot_de_passe'])) {
+                    $_SESSION["user_id"] = $row['id_utilisateur'];
+                    $_SESSION["nom"] = $row['nom'];
+                    $_SESSION["email"] = $row['email'];
+
+                    header("Location: ../acceuil/index.php");
+                    exit;
                 } else {
-                    $login_err = "Aucun compte trouvé avec cet email.";
+                    $login_err = "Mot de passe incorrect.";
                 }
             } else {
-                echo "Une erreur est survenue. Veuillez réessayer plus tard.";
+                $login_err = "Aucun compte trouvé avec cet email.";
             }
-            mysqli_stmt_close($stmt);
+        } catch (PDOException $e) {
+            $login_err = "Erreur de connexion : " . $e->getMessage();
         }
     }
-    mysqli_close($conn);
 }
 ?>
+
+<!-- On ferme PHP AVANT le HTML -->
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -65,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <title>Connexion - Sun Power</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
+               * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -75,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         body {
             min-height: 100vh;
             margin: 0;
-            background: url('../assets/images/image4.jpg') no-repeat center center fixed;
+            background: url('assets/images/image4.jpg') no-repeat center center fixed;
             background-size: cover;
             display: flex;
             justify-content: center;
@@ -254,6 +251,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 margin: 20px;
             }
         }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+        }
     </style>
 </head>
 <body>
@@ -267,21 +269,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </div>
         <div class="login-container">
             <h1>Connexion</h1>
-            <?php if (!empty($login_err)) echo '<p style="color:red;">' . $login_err . '</p>'; ?>
+            <?php if (!empty($login_err)) echo '<p class="error-message">' . $login_err . '</p>'; ?>
             <form action="login.php" method="post">
                 <div class="input-group">
                     <div class="input-with-icon">
                         <i class="fas fa-user"></i>
                         <input type="email" name="email" placeholder="Adresse e-mail" value="<?php echo htmlspecialchars($email); ?>" required>
                     </div>
-                    <?php if (!empty($email_err)) echo '<p style="color:red;">' . $email_err . '</p>'; ?>
+                    <?php if (!empty($email_err)) echo '<p class="error-message">' . $email_err . '</p>'; ?>
                 </div>
                 <div class="input-group">
                     <div class="input-with-icon">
                         <i class="fas fa-key"></i>
                         <input type="password" name="mot_de_passe" placeholder="Mot de passe" required>
                     </div>
-                    <?php if (!empty($mot_de_passe_err)) echo '<p style="color:red;">' . $mot_de_passe_err . '</p>'; ?>
+                    <?php if (!empty($mot_de_passe_err)) echo '<p class="error-message">' . $mot_de_passe_err . '</p>'; ?>
                 </div>
                 <div class="remember-me">
                     <input type="checkbox" id="remember">
